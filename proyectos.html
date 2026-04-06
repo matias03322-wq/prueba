@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - SAIDEX 4.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<style>
+    :root {
+        --brand-cyan: #00E5FF;
+        --brand-orange: #F97316;
+        --dark-bg: #020617;
+        --glass-blur: blur(12px);
+    }
+
+    .bg-dark-primary {
+        background-color: #020617;
+        color: #FFFFFF;
+    }
+
+    .neon-text {
+        color: var(--brand-cyan);
+        text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    }
+
+    /* Projects Layout */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 60px auto 100px;
+    }
+
+    .project-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 1/1;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(0, 229, 255, 0.1);
+        cursor: pointer;
+        background: #000;
+    }
+
+    .project-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .glass-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 40px 25px 30px;
+        background: linear-gradient(to top,
+                rgba(2, 6, 23, 1) 0%,
+                rgba(2, 6, 23, 0.9) 30%,
+                rgba(2, 6, 23, 0.5) 60%,
+                transparent 100%);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        transform: translateY(103%);
+        /* Completely off-screen by default */
+        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 2;
+    }
+
+    .project-card:hover .glass-overlay,
+    .project-card:active .glass-overlay {
+        transform: translateY(0);
+    }
+
+    .project-card:hover .project-img {
+        transform: scale(1.08);
+        filter: brightness(0.7);
+    }
+
+    .badge-sector {
+        background: rgba(0, 229, 255, 0.1);
+        color: var(--brand-cyan);
+        border: 1px solid var(--brand-cyan);
+        padding: 5px 14px;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        align-self: flex-start;
+    }
+
+    .project-content h3 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #FFF;
+        margin-bottom: 10px;
+    }
+
+    .project-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #CBD5E1;
+        margin-bottom: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .tech-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--brand-cyan);
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .tech-meta i {
+        font-size: 1.1rem;
+    }
+
+    /* Unified Pill Footer Container */
+    .footer-pill {
+        background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg stroke='%2300e5ff' stroke-opacity='0.08'%3E%3Cpath d='M0 20h20v20M20 0v20M50 50h20v20M70 40v10M90 90h10M90 80v10M10 90v10M0 90h10' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+        border-radius: 40px;
+        padding: 80px 60px;
+        margin: 0 auto;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 1), inset 0 0 40px rgba(0, 229, 255, 0.02);
+        position: relative;
+        overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        h1 {
+            font-size: 2.5rem !important;
+        }
+
+        .glass-overlay {
+            transform: translateY(103%);
+            /* Ensure it doesn't leak darkness on Android */
+            padding: 30px 20px;
+            background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.9) 80%, transparent 100%);
+        }
+
+        .project-card {
+            aspect-ratio: 1/1;
+            /* Standardized square format for mobile */
+        }
+
+        .project-card:active .glass-overlay {
+            transform: translateY(0);
+        }
+
+        .footer-pill {
+            grid-template-columns: 1fr;
+            text-align: center;
+            padding: 60px 30px;
+        }
+
+        .brand-col {
+            align-items: center !important;
+        }
+
+        .hero-title {
+            font-size: 3rem !important;
+            line-height: 1.1;
+        }
+    }
+    .hero-proyectos-ai {
+        position: relative;
+        padding: 160px 0 100px;
+        text-align: center;
+        background-image: url('assets/proyectos_hero_ai.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-overlay-dark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 0.5) 50%, rgba(2, 6, 23, 0.9) 100%);
+        z-index: 1;
+    }
+
+    .relative-z {
+        position: relative;
+        z-index: 2;
+    }
+
+    .bg-proyectos {
+        background-color: #020617;
+        background-image: url('assets/proyectos.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+</head>
+
+<body class="bg-proyectos">
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="SAIDEX 4.0" class="logo-img">
+                <div class="logo-text">
+                    <span class="company-name"><span class="brand-highlight">SAIDEX 4.0 Domótica</span> y Automatización</span>
+                    <span class="company-tagline">Tecnología avanzada para tu hogar</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="proyectos.html" class="nav-item active">Proyectos</a>
+                <a href="tienda.html" class="nav-item">Tienda</a>
+                <a href="#contacto" class="nav-item">Contacto <i class="fa-solid fa-chevron-down"
+                        style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+            </nav>
+            <div class="nav-actions">
+                <a href="index.html#cotizar" class="btn btn-primary"
+                    style="background: linear-gradient(90deg, #F97316, #EA580C); border: none; padding: 10px 25px; border-radius: 12px; font-weight: 600;">Cotizar
+                    <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars" style="color: #FFF; font-size: 1.5rem;"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-proyectos-ai">
+            <div class="hero-overlay-dark"></div>
+            <div class="container relative-z">
+                <h1 class="hero-title"
+                    style="font-size: 5rem; font-weight: 800; color: #FFF; margin-bottom: 20px; letter-spacing: -1.5px; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    Proyectos <span class="neon-text">Destacados</span></h1>
+                <p style="font-size: 1.4rem; color: #FFFFFF; max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
+                    Casos de éxito que demuestran nuestra capacidad tecnológica en múltiples sectores electrónicos y digitales.
+                </p>
+            </div>
+        </section>
+
+        <section style="padding-bottom: 120px;">
+            <div class="container">
+                <div class="projects-grid">
+                    <!-- Proyecto 1: Residencial Prime -->
+                    <article class="project-card">
+                        <img src="assets/proyecto1.png" alt="Villa Mediterránea 450m2" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Residencial Prime</span>
+                                <h3>Villa Mediterránea 450m²</h3>
+                                <p>Acondicionamos esta residencia completa con iluminación ambiental oculta, control
+                                    perimetral por cámaras IA y una sala de cine Atmos controlada enteramente mediante
+                                    iPads de pared.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>KNX + Control4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 2: Corporativo -->
+                    <article class="project-card">
+                        <img src="assets/proyecto2.png" alt="Torres Empresariales Sky" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Corporativo</span>
+                                <h3>Torres Empresariales Sky</h3>
+                                <p>Modernización de accesos para 500 empleados utilizando biometría facial, sumado a
+                                    automatización de luces por presencia en pasillos que redujo los costos eléctricos
+                                    en un 35%.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>Z-Wave + IA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 3: Departamentos -->
+                    <article class="project-card">
+                        <img src="assets/proyecto3.png" alt="Penthouse Smart Loft" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Departamentos</span>
+                                <h3>Penthouse Smart Loft</h3>
+                                <p>Diseño minimalista donde las cortinas motorizadas interactúan con la entrada de luz
+                                    solar, y el control de clima por zonas asegura temperatura perfecta comandado
+                                    enteramente por voz.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>Wi-Fi + Alexa EcoSystem</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 4: Hospitalidad -->
+                    <article class="project-card">
+                        <img src="assets/proyecto4.png" alt="Hotel Boutique Lumina" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Hospitalidad</span>
+                                <h3>Hotel Boutique "Lumina"</h3>
+                                <p>Experiencia de huésped 100% sin contacto. Check-in automatizado, apertura de puertas
+                                    con smartphone y habitaciones que ajustan luz y clima automáticamente al ingresar.
+                                </p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>Zigbee + PMS Integration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 5: Salud -->
+                    <article class="project-card">
+                        <img src="assets/proyecto5.png" alt="Clínica Salud 2.0" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Salud</span>
+                                <h3>Clínica "Salud 2.0"</h3>
+                                <p>Control estricto de climatización y filtrado de aire en quirófanos. Iluminación
+                                    circadiana en zonas de recuperación para mejorar el bienestar de los pacientes.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>KNX + HVAC Control</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 6: Comercial -->
+                    <article class="project-card">
+                        <img src="assets/proyecto6.png" alt="Restaurante GastroBot" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Comercial</span>
+                                <h3>Restaurante "GastroBot"</h3>
+                                <p>Transiciones automáticas de escenas de iluminación (comida, tarde, cena) y gestión de
+                                    audio multizona inteligente que se adapta al nivel de ruido ambiente del local.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>Control4 + Dante Audio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 7: Urbanización -->
+                    <article class="project-card">
+                        <img src="assets/proyecto7.png" alt="Complejo EcoSmart" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Urbanización</span>
+                                <h3>Complejo "EcoSmart"</h3>
+                                <p>Automatización de áreas comunes. Riego inteligente basado en pronósticos
+                                    meteorológicos, iluminación vial adaptativa y seguridad perimetral unificada.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>LoRaWAN + Weather API</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 8: Cultura -->
+                    <article class="project-card">
+                        <img src="assets/proyecto8.png" alt="Galería Visiones" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Cultura</span>
+                                <h3>Galería de Arte "Visiones"</h3>
+                                <p>Iluminación de precisión con control de Espectro UV para preservación de obras,
+                                    sensores de humedad relativos integrados y sistema de alarmas de triple
+                                    verificación.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>DALI-2 + Sensores IoT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto 9: Industrial -->
+                    <article class="project-card">
+                        <img src="assets/proyecto9.png" alt="Global Hub Hub" class="project-img">
+                        <div class="glass-overlay">
+                            <div class="project-content">
+                                <span class="badge-sector">Industrial</span>
+                                <h3>Global Hub Logistics</h3>
+                                <p>Monitoreo energético en tiempo real de naves industriales, control de portones
+                                    automáticos de alto tránsito y gestión de iluminación por sectores de ocupación.</p>
+                                <div class="tech-meta">
+                                    <i class="fa-solid fa-microchip"></i> <span>Modbus + BMS Custom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Unified Pill -->
+    <footer class="footer" id="contacto" style="background: #000000; border-top: none; padding: 100px 0 60px;">
+        <div class="container">
+            <div class="footer-pill" style="margin-bottom: 50px;">
+                <div class="brand-col"
+                    style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px;">
+                    <div style="width: 100%;">
+                        <img src="assets/logo.png" alt="SAIDEX 4.0"
+                            style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
+                        <p
+                            style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.7); max-width: 320px;">
+                            Innovación y tecnología para transformar tu hogar en un espacio inteligente.</p>
+                        <div class="social-links" style="margin-top: 15px; display: flex; gap: 20px;">
+                            <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-col">
+                    <h4 style="color: #FFF; letter-spacing: 1px; margin-bottom: 20px;">NAVEGACIÓN</h4>
+                    <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
+                        <li><a href="index.html" style="color: #94A3B8; text-decoration:none;">Inicio</a></li>
+                        <li><a href="proyectos.html" style="color: #94A3B8; text-decoration:none;">Proyectos</a></li>
+                        <li><a href="tienda.html" style="color: #94A3B8; text-decoration:none;">Tienda</a></li>
+                    </ul>
+                </div>
+
+                <div class="contact-col">
+                    <h4 style="color: #FFF; letter-spacing: 1px; margin-bottom: 20px;">CONTACTO</h4>
+                    <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:12px;">
+                        <li style="color: #94A3B8;"><i class="fa-solid fa-phone"
+                                style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667</li>
+                        <li style="color: #94A3B8;"><i class="fa-solid fa-envelope"
+                                style="color: #00E5FF; margin-right:8px;"></i> info@saidex40.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align:left; padding: 0 40px;">
+                <p style="color: #64748B; font-size: 0.85rem;">&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/51906681667" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

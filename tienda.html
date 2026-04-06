@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online - SAIDEX 4.0</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px);
+            display: none; justify-content: center; align-items: center; z-index: 2000;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-content {
+            background: #020617; border: 1px solid var(--brand-cyan);
+            border-radius: 24px; padding: 40px; width: 90%; position: relative;
+            box-shadow: 0 0 50px rgba(0, 229, 255, 0.2);
+            transform: translateY(20px); transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .close-modal {
+            position: absolute; top: 20px; right: 25px; color: #94A3B8;
+            font-size: 1.8rem; cursor: pointer; transition: 0.3s;
+        }
+        .close-modal:hover { color: var(--brand-cyan); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: #94A3B8; font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .form-group input {
+            width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px; padding: 12px 15px; color: #FFF; font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-group input:focus { border-color: var(--brand-cyan); outline: none; }
+    </style>
+</head>
+
+<body class="bg-dark-primary">
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="SAIDEX 4.0" class="logo-img">
+                <div class="logo-text">
+                    <span class="company-name"><span class="brand-highlight">SAIDEX 4.0 Domótica</span> y Automatización</span>
+                    <span class="company-tagline">Tecnología avanzada para tu hogar</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="proyectos.html" class="nav-item">Proyectos</a>
+                <a href="tienda.html" class="nav-item active">Tienda</a>
+                <a href="index.html#contacto" class="nav-item">Contacto <i
+                        class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-primary cart-toggle" id="cart-btn"
+                    style="position:relative; width:auto; padding:10px 20px;">
+                    <i class="fa-solid fa-cart-shopping"></i> Carrito
+                    <span id="cart-count" class="cart-badge">0</span>
+                </button>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: 40vh; display:flex; align-items:center; justify-content:center;">
+            <div class="hero-overlay" style="opacity: 0.7;"></div>
+            <div class="container text-center relative-z">
+                <span class="dots-decorator">••</span>
+                <h1 class="hero-title" style="font-size: 3.5rem;">Tienda <span class="text-neon-blue">Inteligente</span>
+                </h1>
+                <h2 class="hero-subtitle text-gray-light" style="margin-top:20px; font-weight: 400;">Los mejores
+                    dispositivos para automatizar tu vida.</h2>
+            </div>
+        </section>
+
+        <!-- Store Section -->
+        <section class="store-section" style="padding: 60px 0 100px;">
+            <div class="container">
+
+                <!-- Filters -->
+                <div class="store-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="seguridad">Seguridad</button>
+                    <button class="filter-btn" data-filter="iluminacion">Iluminación</button>
+                    <button class="filter-btn" data-filter="asistentes">Asistentes</button>
+                    <button class="filter-btn" data-filter="energia">Energía</button>
+                    <button class="filter-btn" data-filter="clima">Climatización</button>
+                </div>
+
+                <div class="store-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-category="seguridad">
+                        <div class="product-image">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Seguridad</span>
+                            <h3 class="product-title">Cerradura Inteligente WiFi con Huella Digital</h3>
+                            <div class="product-price-row">
+                                <div>
+                                    <div class="product-price">$149.99</div>
+                                    <div class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (120 res)</div>
+                                </div>
+                                <button class="btn-buy add-to-cart" data-id="p1" data-name="Cerradura Inteligente"
+                                    data-price="149.99"><i class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card" data-category="iluminacion">
+                        <div class="product-image">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Iluminación</span>
+                            <h3 class="product-title">Kit 2x Ampolletas Inteligentes RGB WiFi</h3>
+                            <div class="product-price-row">
+                                <div>
+                                    <div class="product-price">$29.99</div>
+                                    <div class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (350 res)</div>
+                                </div>
+                                <button class="btn-buy add-to-cart" data-id="p2" data-name="Kit 2x Ampolletas RGB"
+                                    data-price="29.99"><i class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card" data-category="asistentes">
+                        <div class="product-image">
+                            <i class="fa-brands fa-amazon"></i>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Asistentes</span>
+                            <h3 class="product-title">Amazon Echo Dot (5a Gen) Inteligencia Artificial</h3>
+                            <div class="product-price-row">
+                                <div>
+                                    <div class="product-price">$49.99</div>
+                                    <div class="product-rating"><i class="fa-solid fa-star"></i> 5.0 (1.2k res)</div>
+                                </div>
+                                <button class="btn-buy add-to-cart" data-id="p3" data-name="Amazon Echo Dot"
+                                    data-price="49.99"><i class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card" data-category="seguridad">
+                        <div class="product-image">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Seguridad</span>
+                            <h3 class="product-title">Cámara Inteligente Exterior Inalámbrica 2K</h3>
+                            <div class="product-price-row">
+                                <div>
+                                    <div class="product-price">$89.90</div>
+                                    <div class="product-rating"><i class="fa-solid fa-star"></i> 4.7 (85 res)</div>
+                                </div>
+                                <button class="btn-buy add-to-cart" data-id="p4" data-name="Cámara Exterior 2K"
+                                    data-price="89.90"><i class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card" data-category="energia">
+                        <div class="product-image">
+                            <i class="fa-solid fa-plug"></i>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Energía</span>
+                            <h3 class="product-title">Enchufe Inteligente Smart Plug 10A Monitor</h3>
+                            <div class="product-price-row">
+                                <div>
+                                    <div class="product-price">$19.99</div>
+                                    <div class="product-rating"><i class="fa-solid fa-star"></i> 4.6 (420 res)</div>
+                                </div>
+                                <button class="btn-buy add-to-cart" data-id="p5" data-name="Enchufe Inteligente"
+                                    data-price="19.99"><i class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card" data-category="clima">
+                        <div class="product-image">
+                            <i class="fa-solid fa-temperature-empty"></i>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Climatización</span>
+                            <h3 class="product-title">Termostato WiFi Táctil Control de Clima</h3>
+                            <div class="product-price-row">
+                                <div>
+                                    <div class="product-price">$129.50</div>
+                                    <div class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (67 res)</div>
+                                </div>
+                                <button class="btn-buy add-to-cart" data-id="p6" data-name="Termostato WiFi Táctil"
+                                    data-price="129.50"><i class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Tu Carrito</h3>
+            <button class="close-cart" id="close-cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart-msg">Tu carrito está vacío</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cart-total">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-checkout" style="width:100%; border-radius: 8px;">Pagar Ahora</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal (Premium Design) -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content" style="max-width: 450px;">
+            <span class="close-modal" id="close-checkout-modal">&times;</span>
+            <div style="text-align: center; margin-bottom: 25px;">
+                <div style="color: var(--brand-cyan); font-size: 2.5rem; margin-bottom: 15px;">
+                    <i class="fa-solid fa-cart-check"></i>
+                </div>
+                <h3 style="color: #FFF; font-size: 1.8rem; margin-bottom: 8px;">Finalizar Pedido</h3>
+                <p style="color: #94A3B8; font-size: 0.9rem;">Completa tus datos para enviarte el pedido por WhatsApp.</p>
+            </div>
+            
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="check-name" placeholder="Tu nombre..." required>
+                </div>
+                <div class="form-group">
+                    <label>Dirección de Entrega</label>
+                    <input type="text" id="check-address" placeholder="Av. Siempre Viva 123..." required>
+                </div>
+                <div style="background: rgba(0, 229, 255, 0.05); padding: 15px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(0, 229, 255, 0.1);">
+                    <p style="color: #FFF; font-size: 0.9rem; margin-bottom: 5px;">Método de Pago:</p>
+                    <p style="color: var(--brand-cyan); font-weight: 700; font-size: 0.85rem;"><i class="fa-solid fa-clock"></i> Coordinar Pago al Recibir en WhatsApp</p>
+                </div>
+                <button type="submit" class="btn-submit" style="background: var(--brand-cyan); color: #000;">
+                    Confirmar y Enviar <i class="fa-brands fa-whatsapp"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Unified Pill -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-pill">
+                <!-- Column 1: Brand -->
+                <div class="brand-col">
+                    <img src="assets/logo.png" alt="SAIDEX 4.0" style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
+                    <p>Innovación y tecnología para transformar tu hogar en un espacio inteligente.</p>
+                    <div class="social-links" style="margin-top: 15px; display: flex; gap: 20px;">
+                        <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div class="nav-col">
+                    <h4>NAVEGACIÓN</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="contact-col">
+                    <h4>CONTACTO</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-phone" style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667</li>
+                        <li><i class="fa-solid fa-envelope" style="color: #00E5FF; margin-right:8px;"></i> info@saidex40.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="display:flex; justify-content: space-between; padding: 0 40px;">
+                <p style="color: #64748B; font-size: 0.85rem;">&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
+                <p style="color: #64748B; font-size: 0.85rem;">Tienda Inteligente</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/51906681667" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

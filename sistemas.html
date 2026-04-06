@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas - SAIDEX 4.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        .bg-nodes {
+            background-color: #020617;
+            background-image: url('assets/servicio.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-title-gradient {
+            background: linear-gradient(90deg, #38BDF8, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* Glass Panel */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.01);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 380px;
+        }
+
+        .panel-cyan {
+            border-bottom: 2px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .panel-orange {
+            border-bottom: 2px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .panel-violet {
+            border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-8px);
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .panel-cyan:hover {
+            border-color: rgba(0, 229, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.1), inset 0 0 30px rgba(0, 229, 255, 0.05);
+        }
+
+        .panel-orange:hover {
+            border-color: rgba(249, 115, 22, 0.5);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1), inset 0 0 30px rgba(249, 115, 22, 0.05);
+        }
+
+        .panel-violet:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1), inset 0 0 30px rgba(139, 92, 246, 0.05);
+        }
+
+        .solutions-grid-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 900px) {
+            .solutions-grid-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title-gradient {
+                font-size: 2.8rem;
+            }
+
+            .footer-pill {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+                gap: 50px !important;
+            }
+
+            .brand-col {
+                grid-row: 1; /* Move logo to top on mobile */
+            }
+
+            .footer-heading {
+                justify-content: center;
+            }
+
+            ul {
+                align-items: center !important;
+            }
+
+            li {
+                justify-content: center !important;
+            }
+        }
+
+        /* Top Header of Card */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #FFF;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-box-cyan {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), transparent);
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: inset 0 0 15px rgba(0, 229, 255, 0.2);
+            text-shadow: 0 0 10px #00E5FF;
+        }
+
+        .icon-box-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), transparent);
+            border-color: rgba(249, 115, 22, 0.3);
+            box-shadow: inset 0 0 15px rgba(249, 115, 22, 0.2);
+            text-shadow: 0 0 10px #F97316;
+        }
+
+        .icon-box-violet {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), transparent);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.2);
+            text-shadow: 0 0 10px #8B5CF6;
+        }
+
+        .ver-detalles {
+            color: var(--text-gray-light);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+
+        .glass-panel:hover .ver-detalles {
+            color: #FFF;
+        }
+
+        /* Widget Area */
+        .widget-area {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            opacity: 0.6;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: scale(0.95) translateX(10px);
+        }
+
+        .glass-panel:hover .widget-area {
+            opacity: 1;
+            transform: scale(1) translateX(0);
+        }
+
+        /* Fake Live Widgets */
+        .widget-temp-graph {
+            width: 140px;
+            height: 70px;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 8px;
+            background: linear-gradient(0deg, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 5px;
+        }
+
+        .widget-temp-graph svg {
+            width: 100%;
+            height: 80%;
+            stroke: #F97316;
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 2px 5px rgba(249, 115, 22, 0.5));
+        }
+
+        .widget-floorplan {
+            width: 130px;
+            height: 80px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+            padding: 8px;
+        }
+
+        .floor-room {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            position: absolute;
+            background: #00E5FF;
+            box-shadow: 0 0 10px #00E5FF;
+            animation: pulse-dot 2s infinite;
+        }
+
+        .dot-yellow {
+            background: #EAB308;
+            box-shadow: 0 0 10px #EAB308;
+        }
+
+        .widget-audio {
+            width: 100px;
+            height: 80px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes pulse-dot {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Typography & layout */
+        h3.card-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #FFF;
+        }
+
+        p.card-desc {
+            color: #94A3B8;
+            line-height: 1.6;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            max-width: 80%;
+        }
+
+        .glass-ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .glass-ul li {
+            color: #E2E8F0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .neon-tick-cyan {
+            color: #00E5FF;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+            margin-right: 12px;
+        }
+
+        .neon-tick-orange {
+            color: #F97316;
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.8);
+            margin-right: 12px;
+        }
+
+        .neon-tick-violet {
+            color: #8B5CF6;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
+            margin-right: 12px;
+        }
+
+        /* Glowing CTA Button */
+        .cta-glowing {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #020617;
+            color: #FFF;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .cta-glowing::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            background: linear-gradient(90deg, #00E5FF, #F97316, #8B5CF6);
+            border-radius: 32px;
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.8;
+            transition: filter 0.3s, opacity 0.3s;
+        }
+
+        .cta-glowing::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #020617;
+            border-radius: 30px;
+            z-index: -1;
+        }
+
+        .cta-glowing:hover::before {
+            filter: blur(12px);
+            opacity: 1;
+        }
+
+        .cta-glowing:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Unified Pill Footer Container */
+        .footer-pill {
+            background-color: #000000;
+            background-image: 
+                radial-gradient(circle at 70% 30%, rgba(0, 229, 255, 0.05) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg stroke='%2300e5ff' stroke-opacity='0.08'%3E%3Cpath d='M0 20h20v20M20 0v20M50 50h20v20M70 40v10M90 90h10M90 80v10M10 90v10M0 90h10' fill='none'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%2300e5ff' fill-opacity='0.1'/%3E%3Ccircle cx='70' cy='50' r='2' fill='%2300e5ff' fill-opacity='0.1'/%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 40px;
+            padding: 80px 60px;
+            margin: 0 auto;
+            max-width: var(--container-max);
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr;
+            gap: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 1), inset 0 0 40px rgba(0, 229, 255, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-slogan {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: #FFFFFF;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+            margin-bottom: 25px;
+            max-width: 320px;
+        }
+
+        .nav-dot {
+            width: 6px;
+            height: 6px;
+            background: #00E5FF;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+            box-shadow: 0 0 8px #00E5FF;
+            opacity: 0.8;
+        }
+
+        .contact-icon-box {
+            color: #00E5FF;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.6));
+        }
+
+        @media (max-width: 768px) {
+            .footer-pill {
+                grid-template-columns: 1fr;
+                border-radius: 20px;
+                padding: 40px 20px;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .nav-col,
+            .contact-col,
+            .brand-col {
+                align-items: center !important;
+            }
+            .footer-slogan { max-width: 100%; }
+        }
+
+        /* WhatsApp Button Redesign */
+        @keyframes pulse-whatsapp-outline {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 65px;
+            height: 65px;
+            background: rgba(37, 211, 102, 0.2);
+            backdrop-filter: blur(5px);
+            border: 2px solid #25D366;
+            color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            z-index: 100;
+            animation: pulse-whatsapp-outline 3s infinite;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+        }
+        .whatsapp-float:hover {
+            background: #25D366;
+            color: #FFF;
+            transform: scale(1.1);
+        }
+        /* General Footer Utilities */
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #E2E8F0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            border-color: #00E5FF;
+            color: #00E5FF;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+            transform: translateY(-3px);
+            background: rgba(0, 229, 255, 0.1);
+        }
+
+        .footer-heading {
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: #00E5FF;
+            box-shadow: 0 0 8px #00E5FF;
+        }
+
+        .text-cyan-accent {
+            color: #00E5FF;
+        }
+    </style>
+</head>
+
+<body class="bg-nodes">
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="SAIDEX 4.0" class="logo-img">
+                <div class="logo-text">
+                    <span class="company-name"><span class="brand-highlight">SAIDEX 4.0 Domótica</span> y Automatización</span>
+                    <span class="company-tagline">Tecnología avanzada para tu hogar</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Inicio</a>
+                <a href="proyectos.html" class="nav-item">Proyectos</a>
+                <a href="tienda.html" class="nav-item">Tienda</a>
+                <a href="index.html#contacto" class="nav-item">Contacto <i
+                        class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+            </nav>
+            <div class="nav-actions">
+                <a href="index.html#cotizar" class="btn btn-primary"
+                    style="box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);">Cotizar <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero"
+            style="min-height: 40vh; display:flex; align-items:flex-end; justify-content:center; padding-bottom: 50px; background: transparent;">
+            <div class="container text-center relative-z">
+                <div style="display:flex; justify-content:center; gap:8px; margin-bottom: 15px;">
+                    <div
+                        style="width:8px; height:8px; border-radius:50%; background:#00E5FF; box-shadow:0 0 8px #00E5FF;">
+                    </div>
+                    <div
+                        style="width:8px; height:8px; border-radius:50%; background:#8B5CF6; box-shadow:0 0 8px #8B5CF6;">
+                    </div>
+                </div>
+                <h1 class="hero-title-gradient">Sistemas Inteligentes</h1>
+                <h2 class="text-gray-light"
+                    style="margin-top:15px; font-weight: 400; font-size: 1.2rem; max-width: 600px; margin-inline: auto;">
+                    Descubre cómo hacemos de cada rincón un espacio vivo.</h2>
+            </div>
+        </section>
+
+        <!-- Dynamic Glass Cards Section -->
+        <section style="padding: 20px 0 100px;">
+            <div class="container">
+                <div class="solutions-grid-2col">
+
+                    <!-- Sistema 1 -->
+                    <div class="glass-panel panel-cyan">
+                        <div class="card-header">
+                            <div class="icon-box icon-box-cyan">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                        </div>
+                        <h3 class="card-title">Iluminación Adaptativa</h3>
+                        <p class="card-desc">Controla el color, la intensidad y los horarios de tus luces. Reduce tu
+                            consumo eléctrico mientras creas ambientes perfectos.</p>
+                        <ul class="glass-ul">
+                            <li><i class="fa-solid fa-check neon-tick-cyan"></i> Escenas de noche y día</li>
+                            <li><i class="fa-solid fa-check neon-tick-cyan"></i> Encendido por movimiento</li>
+                        </ul>
+                    </div>
+
+                    <!-- Sistema 2 -->
+                    <div class="glass-panel panel-orange">
+                        <div class="card-header">
+                            <div class="icon-box icon-box-orange">
+                                <i class="fa-solid fa-temperature-half"></i>
+                            </div>
+                            <span
+                                style="font-size: 1.4rem; font-weight:700; color:#F97316; font-family: monospace;">23.5°C</span>
+                        </div>
+                        <h3 class="card-title">Climatización Inteligente</h3>
+                        <p class="card-desc">Termostatos inteligentes que aprenden de tus rutinas. Mantienen la
+                            temperatura ideal y se apagan automáticamente cuando no hay nadie en casa.</p>
+                        <ul class="glass-ul">
+                            <li><i class="fa-solid fa-check neon-tick-orange"></i> Control multizona</li>
+                            <li><i class="fa-solid fa-check neon-tick-orange"></i> Compatibilidad HVAC</li>
+                        </ul>
+                        <!-- Live Widget -->
+                        <div class="widget-area">
+                            <div class="widget-temp-graph">
+                                <span
+                                    style="position:absolute; top:2px; left:5px; font-size:9px; color:rgba(255,255,255,0.4); font-family:sans-serif; text-transform:uppercase;">Historial</span>
+                                <svg viewBox="0 0 100 30" preserveAspectRatio="none">
+                                    <path d="M0,25 Q10,20 20,25 T40,15 T60,20 T80,5 T100,10"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sistema 3 -->
+                    <div class="glass-panel panel-cyan">
+                        <div class="card-header">
+                            <div class="icon-box icon-box-cyan">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <a href="#" class="ver-detalles">Ver detalles <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                        <h3 class="card-title">Seguridad y Accesos</h3>
+                        <p class="card-desc">Cerraduras biométricas, cámaras de alta resolución y sensores de puertas
+                            que te envían notificaciones push en tiempo real.</p>
+                        <ul class="glass-ul">
+                            <li><i class="fa-solid fa-check neon-tick-cyan"></i> Huella, PIN o App</li>
+                            <li><i class="fa-solid fa-check neon-tick-cyan"></i> Simulación de presencia</li>
+                        </ul>
+                        <!-- Live Widget Floorplan -->
+                        <div class="widget-area">
+                            <div class="widget-floorplan">
+                                <!-- Rooms -->
+                                <div class="floor-room" style="top:5px; left:5px; width:40px; height:45px;"></div>
+                                <div class="floor-room" style="top:5px; left:45px; width:50px; height:30px;"></div>
+                                <div class="floor-room" style="top:35px; left:45px; width:50px; height:35px;"></div>
+                                <div class="floor-room" style="top:50px; left:5px; width:40px; height:20px;"></div>
+                                <!-- Dots -->
+                                <div class="dot" style="top:15px; left:20px;"></div>
+                                <div class="dot" style="top:15px; left:70px;"></div>
+                                <div class="dot dot-yellow" style="top:50px; left:70px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sistema 4 -->
+                    <div class="glass-panel panel-violet">
+                        <div class="card-header">
+                            <div class="icon-box icon-box-violet">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <a href="#" class="ver-detalles">Ver detalles <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                        <h3 class="card-title">Audio y Video Multiroom</h3>
+                        <p class="card-desc">Distribuye tu música y películas por toda la casa. Mismo sonido en todas
+                            partes o diferentes listas de reproducción por habitación.</p>
+                        <ul class="glass-ul">
+                            <li><i class="fa-solid fa-check neon-tick-violet"></i> Parlantes invisibles</li>
+                            <li><i class="fa-solid fa-check neon-tick-violet"></i> Cines en casa privados</li>
+                        </ul>
+                        <!-- Live Widget Audio -->
+                        <div class="widget-area">
+                            <div class="widget-audio">
+                                <i class="fa-solid fa-tower-broadcast"
+                                    style="font-size:2rem; color:#8B5CF6; filter:drop-shadow(0 0 10px #8B5CF6);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top:70px;">
+                    <a href="index.html#cotizar" class="cta-glowing">Cotizar tu Sistema <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container" style="padding-bottom: 60px;">
+            <!-- Removed orange line -->
+        </div>
+    </main>
+
+    <!-- Footer Unified Pill -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-pill">
+                <!-- Column 1: Brand -->
+                <div class="brand-col">
+                    <img src="assets/logo.png" alt="SAIDEX 4.0" style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
+                    <p>Innovación y tecnología para transformar tu hogar en un espacio inteligente.</p>
+                    <div class="social-links" style="margin-top: 15px; display: flex; gap: 20px;">
+                        <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div class="nav-col">
+                    <h4>NAVEGACIÓN</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="contact-col">
+                    <h4>CONTACTO</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-phone" style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667</li>
+                        <li><i class="fa-solid fa-envelope" style="color: #00E5FF; margin-right:8px;"></i> info@saidex40.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="display:flex; justify-content: space-between; padding: 0 40px;">
+                <p style="color: #64748B; font-size: 0.85rem;">&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
+                <p style="color: #64748B; font-size: 0.85rem;">Sistemas Inteligentes</p>
+            </div>
+        </div>
+    </footer>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button Redesigned -->
+    <a href="https://wa.me/51906681667" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

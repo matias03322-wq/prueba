@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAIDEX 4.0 Domótica y Automatización</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="SAIDEX 4.0" class="logo-img">
+                <div class="logo-text">
+                    <span class="company-name"><span class="brand-highlight">SAIDEX 4.0 Domótica</span> y
+                        Automatización</span>
+                    <span class="company-tagline">Tecnología avanzada para tu hogar</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#inicio" class="nav-item active">Inicio</a>
+
+                <!-- Dropdown Nosotros -->
+                <div class="nav-item has-dropdown">
+                    <a href="#nosotros">Nosotros <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+                    <div class="dropdown-menu mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-col">
+                                <h3>Sobre Nosotros</h3>
+                                <ul>
+                                    <li><a href="#nosotros">Historia de SAIDEX 4.0</a></li>
+                                    <li><a href="#nosotros">Propuesta de Valor</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h3>¿Por qué Elegirnos?</h3>
+                                <ul>
+                                    <li><a href="#nosotros">Nuestra Experiencia</a></li>
+                                    <li><a href="#nosotros">Nuestra Diferencia</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dropdown Soluciones -->
+                <div class="nav-item has-dropdown">
+                    <a href="#soluciones">Soluciones <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+                    <div class="dropdown-menu mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-col">
+                                <h3>Sistemas</h3>
+                                <ul>
+                                    <li><a href="#soluciones">Iluminación Inteligente</a></li>
+                                    <li><a href="#soluciones">Climatización (HVAC)</a></li>
+                                    <li><a href="#soluciones">Seguridad y Vigilancia</a></li>
+                                    <li><a href="#soluciones">Control de Accesos</a></li>
+                                    <li><a href="#soluciones">Audio & Video Multiroom</a></li>
+                                    <li><a href="#soluciones">Persianas & Cortinas</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h3>Integraciones</h3>
+                                <ul>
+                                    <li><a href="#soluciones">Integración Total</a></li>
+                                    <li><a href="#soluciones">App Móvil / Voz (IA)</a></li>
+                                    <li><a href="#soluciones">Asistentes de Voz</a></li>
+                                    <li><a href="#soluciones">Protocolos (KNX, Zigbee)</a></li>
+                                    <li><a href="#soluciones">IoT & Escenas</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h3>Nuestros Servicios</h3>
+                                <ul>
+                                    <li><a href="#soluciones">Diseño e Instalación</a></li>
+                                    <li><a href="#soluciones">Programación a Medida</a></li>
+                                    <li><a href="#soluciones">Mantenimiento</a></li>
+                                    <li><a href="#soluciones">Soporte Técnico</a></li>
+                                    <li><a href="#soluciones">Consultoría</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#proyectos" class="nav-item">Proyectos</a>
+                <a href="tienda.html" class="nav-item">Tienda</a>
+                <a href="#contacto" class="nav-item">Contacto <i class="fa-solid fa-chevron-down dropdown-icon"></i></a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#cotizar" class="btn btn-primary">Cotizar <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#login" class="btn btn-outline"><i class="fa-regular fa-user"></i> Login</a>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <!-- Carousel Background -->
+            <div class="hero-carousel">
+                <div class="carousel-slide active" style="background-image: url('assets/carrusel01.png');"></div>
+                <div class="carousel-slide" style="background-image: url('assets/carrusel02.png');"></div>
+                <div class="carousel-slide" style="background-image: url('assets/carrusel03.png');"></div>
+                <div class="carousel-slide" style="background-image: url('assets/carrusel04.png');"></div>
+            </div>
+
+            <!-- Particles Canvas -->
+            <canvas id="particles" class="particle-canvas"></canvas>
+
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Transforma tu Hogar <br>en <span class="text-neon-blue">Inteligente</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Innovación, Seguridad y Confort <br> con SAIDEX 4.0 Domótica y
+                        Automatización</h2>
+                    <p class="hero-text">Diseñamos e integramos sistemas inteligentes para que vivas con más comodidad,
+                        seguridad y eficiencia energética.</p>
+
+                    <div class="hero-actions">
+                        <a href="#cotizar" class="btn btn-primary btn-large">Cotizar Proyecto <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#soluciones" class="btn btn-cyan btn-large">Ver Soluciones <i
+                                class="fa-regular fa-circle-play"></i></a>
+                    </div>
+
+                    <div class="hero-trust">
+                        <span><i class="fa-regular fa-circle-check"></i> Instalación Profesional</span>
+                        <span><i class="fa-regular fa-circle-check"></i> Garantía de Calidad</span>
+                        <span><i class="fa-solid fa-headset"></i> Soporte 24/7</span>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <!-- We will add the smartphone image here. For now a placeholder wrapper -->
+                    <div class="phone-mockup-placeholder"></div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" onclick="document.getElementById('nosotros').scrollIntoView({behavior: 'smooth'})">
+                <span>DESCUBRE MÁS</span>
+                <div class="mouse-icon">
+                    <div class="mouse-wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <!-- About Us Section -->
+        <section class="about-section" id="nosotros">
+            <div class="container relative-z">
+                <div class="section-header center-title" style="margin-bottom: 50px;">
+                    <span class="dots-decorator">••</span>
+                    <h2 class="section-title dark-text">Sobre <span class="text-blue">Nosotros</span></h2>
+                    <span class="dots-decorator">••</span>
+                </div>
+
+                <div class="about-glass-grid">
+                    <!-- Primera Columna -->
+                    <div class="about-glass-card">
+                        <div class="glass-card-content">
+                            <h3 class="about-glass-subtitle">Historia de SAIDEX 4.0</h3>
+                            <p class="about-glass-text">Nacimos con la visión de llevar la tecnología del futuro a los
+                                hogares de hoy. En SAIDEX 4.0 nos especializamos en transformar espacios comunes en
+                                ecosistemas inteligentes, donde la comodidad, eficiencia y seguridad se integran de
+                                manera perfecta y accesible.</p>
+
+                            <h3 class="about-glass-subtitle mt-4">Nuestra Propuesta de Valor</h3>
+                            <p class="about-glass-text">No solo vendemos dispositivos; creamos experiencias. Diseñamos
+                                soluciones personalizadas que se adaptan a tu estilo de vida, garantizando que cada
+                                rincón de tu hogar trabaje para ti, maximizando el ahorro energético y tu tranquilidad
+                                sin comprometer la estética de tus espacios.</p>
+                        </div>
+                    </div>
+
+                    <!-- Segunda Columna -->
+                    <div class="about-glass-card">
+                        <div class="glass-card-content">
+                            <h3 class="about-glass-subtitle">¿Por qué Elegir SAIDEX 4.0?</h3>
+                            <ul class="about-glass-list">
+                                <li>
+                                    <i class="fa-solid fa-circle-check text-blue"></i>
+                                    <div><strong>+10 años de experiencia</strong> en el sector de la domótica y
+                                        automatización.</div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-circle-check text-blue"></i>
+                                    <div><strong>Uso de las últimas tecnologías</strong> y protocolos IoT para un hogar
+                                        inteligente y conectado.</div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-circle-check text-blue"></i>
+                                    <div><strong>Atención personalizada</strong> en cada proyecto, adaptándonos a tus
+                                        necesidades.</div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-circle-check text-blue"></i>
+                                    <div><strong>Soporte técnico 24/7</strong> con un equipo profesional siempre
+                                        disponible.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Strip -->
+        <section class="features-strip">
+            <div class="container features-container">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <div class="feature-text">
+                        <h4>Control Total</h4>
+                        <p>Desde tu móvil o voz</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="feature-text">
+                        <h4>Seguridad Avanzada</h4>
+                        <p>Vigilancia 24/7 conectada</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="feature-text">
+                        <h4>Ahorro Energético</h4>
+                        <p>Optimiza el consumo</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="feature-text">
+                        <h4>Automatización Total</h4>
+                        <p>Escenas y rutinas inteligentes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Solutions and Projects Section -->
+        <section class="solutions-projects-section bg-light" id="soluciones">
+            <div class="container main-grid">
+
+                <!-- Left Column: Solutions -->
+                <div class="solutions-column">
+                    <div class="section-header center-title">
+                        <span class="dots-decorator">••</span>
+                        <h2 class="section-title dark-text">Nuestras Soluciones Inteligentes</h2>
+                        <span class="dots-decorator">••</span>
+                    </div>
+
+                    <div class="solutions-grid">
+                        <!-- Card 1 -->
+                        <div class="solution-card">
+                            <div class="card-image">
+                                <div class="img-placeholder bg-blue-img"></div>
+                                <div class="card-icon"><i class="fa-solid fa-house-laptop"></i></div>
+                            </div>
+                            <div class="card-content">
+                                <h3>Sistemas</h3>
+                                <ul>
+                                    <li><i class="fa-solid fa-check text-green"></i> Iluminación Inteligente</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Climatización (HVAC)</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Seguridad y Vigilancia</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Control de Accesos</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Audio & Video Multiroom</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Persianas & Cortinas</li>
+                                </ul>
+                                <a href="sistemas.html" class="btn-text">Ver Sistemas <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="solution-card">
+                            <div class="card-image">
+                                <div class="img-placeholder bg-blue-img2"></div>
+                                <div class="card-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+                            </div>
+                            <div class="card-content">
+                                <h3>Integraciones</h3>
+                                <ul>
+                                    <li><i class="fa-solid fa-check text-green"></i> App Móvil Personalizada</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Asistentes de Voz (Alexa, Google)
+                                    </li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Protocolos KNX / Zigbee / Z-Wave
+                                    </li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Escenas y Automatizaciones</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> IoT & Inteligencia Artificial</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Integración con Energía Solar</li>
+                                </ul>
+                                <a href="integraciones.html" class="btn-text">Ver Integraciones <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="solution-card">
+                            <div class="card-image">
+                                <div class="img-placeholder bg-blue-img3"></div>
+                                <div class="card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            </div>
+                            <div class="card-content">
+                                <h3>Nuestros Servicios</h3>
+                                <ul>
+                                    <li><i class="fa-solid fa-check text-green"></i> Diseño e Instalación</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Programación a Medida</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Mantenimiento Preventivo</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Soporte Técnico 24/7</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Consultoría Especializada</li>
+                                    <li><i class="fa-solid fa-check text-green"></i> Actualizaciones y Upgrades</li>
+                                </ul>
+                                <a href="servicios.html" class="btn-text">Ver Servicios <i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Projects -->
+                <div class="projects-column" id="proyectos">
+                    <div class="section-header space-between">
+                        <h2 class="section-title dark-text">Proyectos Destacados</h2>
+                        <a href="proyectos.html" class="btn-text-small">Ver todos <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="projects-list">
+                        <!-- Project 1 -->
+                        <div class="project-mini-card">
+                            <div class="project-img bg-house-img">
+                                <span class="badge">Residencial</span>
+                            </div>
+                            <div class="project-info">
+                                <h4>Casa Inteligente - 450 m²</h4>
+                                <p>Automatización completa de iluminación, clima y seguridad</p>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-mini-card">
+                            <div class="project-img bg-office-img">
+                                <span class="badge">Comercial</span>
+                            </div>
+                            <div class="project-info">
+                                <h4>Oficina Corporativa</h4>
+                                <p>Control de accesos, clima y audio multiroom</p>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-mini-card">
+                            <div class="project-img bg-apt-img">
+                                <span class="badge">Residencial</span>
+                            </div>
+                            <div class="project-info">
+                                <h4>Departamento Premium</h4>
+                                <p>Integración total con app móvil y voz</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Stats Section -->
+        <section class="stats-section bg-dark-secondary">
+            <div class="container stats-container">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fa-solid fa-house-user text-neon-blue"></i></div>
+                    <h3 class="counter" data-target="10">0</h3>
+                    <p>Años de experiencia</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fa-regular fa-clipboard text-neon-blue"></i></div>
+                    <h3 class="counter" data-target="500">0</h3>
+                    <p>Proyectos realizados</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fa-solid fa-users text-neon-blue"></i></div>
+                    <h3 class="counter" data-target="1200">0</h3>
+                    <p>Clientes satisfechos</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fa-solid fa-headset text-neon-blue"></i></div>
+                    <h3>24/7</h3>
+                    <p>Soporte técnico</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Section -->
+        <section class="cta-banner" id="cotizar">
+            <div class="container cta-container">
+                <div class="cta-bg">
+                    <div class="cta-content">
+                        <h2>¿Listo para automatizar tu hogar?</h2>
+                        <p>Recibe asesoría gratuita y cotiza tu proyecto</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="https://wa.me/51906681667" target="_blank" class="btn btn-outline btn-large"><i
+                                class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Strip -->
+        <section class="partners-strip bg-white">
+            <div class="container text-center">
+                <p class="partners-title" style="margin-bottom: 25px; color: var(--text-gray-dark); font-weight: 500;">
+                    Marcas y tecnologías con las que trabajamos</p>
+                <div class="partners-logos">
+                    <!-- Replace the src attributes with your actual image filenames from the assets folder -->
+                    <img src="assets/knx.png" alt="KNX" class="partner-logo-img">
+                    <img src="assets/control4.png" alt="Control 4" class="partner-logo-img">
+                    <img src="assets/zigbee.png" alt="Zigbee" class="partner-logo-img">
+                    <img src="assets/somfy.png" alt="Somfy" class="partner-logo-img">
+                    <img src="assets/alexa.png" alt="Alexa" class="partner-logo-img">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Unified Pill -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-pill">
+                <!-- Column 1: Brand -->
+                <div class="brand-col">
+                    <img src="assets/logo.png" alt="SAIDEX 4.0" style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
+                    <p>Innovación y tecnología para transformar tu hogar en un espacio inteligente.</p>
+                    <div class="social-links" style="margin-top: 15px; display: flex; gap: 20px;">
+                        <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div class="nav-col">
+                    <h4>NAVEGACIÓN</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="contact-col">
+                    <h4>CONTACTO</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-phone" style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667</li>
+                        <li><i class="fa-solid fa-envelope" style="color: #00E5FF; margin-right:8px;"></i> info@saidex40.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="display:flex; justify-content: space-between; padding: 0 40px;">
+                <p style="color: #64748B; font-size: 0.85rem;">&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
+                <p style="color: #64748B; font-size: 0.85rem;">Tecnología Avanzada</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/51906681667?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

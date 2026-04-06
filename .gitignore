@@ -1,0 +1,10 @@
+.gemini/
+.agents/
+.agent/
+_agents/
+_agent/
+brain/
+tmp/
+node_modules/
+.DS_Store
+Thumbs.db

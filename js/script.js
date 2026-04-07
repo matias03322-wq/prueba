@@ -97,6 +97,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if(cartSidebar) {
             cartSidebar.classList.toggle('active');
             if (cartOverlay) cartOverlay.classList.toggle('active');
+            
+            // Hide/Show floating button on click
+            const cartFloatBtn = document.getElementById('cart-btn-float');
+            if(cartFloatBtn) {
+                if(cartSidebar.classList.contains('active')) {
+                    cartFloatBtn.style.opacity = '0';
+                    cartFloatBtn.style.visibility = 'hidden';
+                    cartFloatBtn.style.transform = 'scale(0.8)';
+                } else {
+                    cartFloatBtn.style.opacity = '1';
+                    cartFloatBtn.style.visibility = 'visible';
+                    cartFloatBtn.style.transform = 'scale(1)';
+                }
+            }
         }
     }
     

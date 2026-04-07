@@ -21,19 +21,17 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px);
             display: none; justify-content: center; align-items: center; z-index: 2000;
-            opacity: 0; transition: opacity 0.3s ease;
         }
-        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-overlay.active { display: flex; }
         .modal-content {
             background: #020617; border: 1px solid var(--brand-cyan);
             border-radius: 24px; padding: 40px; width: 90%; position: relative;
             box-shadow: 0 0 50px rgba(0, 229, 255, 0.2);
-            transform: translateY(20px); transition: transform 0.3s ease;
         }
-        .modal-overlay.active .modal-content { transform: translateY(0); }
+
         .close-modal {
             position: absolute; top: 20px; right: 25px; color: #94A3B8;
-            font-size: 1.8rem; cursor: pointer; transition: 0.3s;
+            font-size: 1.8rem; cursor: pointer;
         }
         .close-modal:hover { color: var(--brand-cyan); }
         .form-group { margin-bottom: 20px; }
@@ -41,7 +39,6 @@
         .form-group input {
             width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px; padding: 12px 15px; color: #FFF; font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
         }
         .form-group input:focus { border-color: var(--brand-cyan); outline: none; }
     </style>
@@ -86,8 +83,7 @@
             <div class="hero-overlay" style="opacity: 0.7;"></div>
             <div class="container text-center relative-z">
                 <span class="dots-decorator">••</span>
-                <h1 class="hero-title" style="font-size: 3.5rem;">Tienda <span class="text-neon-blue">Inteligente</span>
-                </h1>
+                <h1 class="hero-title">Tienda <span class="text-neon-blue">Inteligente</span></h1>
                 <h2 class="hero-subtitle text-gray-light" style="margin-top:20px; font-weight: 400;">Los mejores
                     dispositivos para automatizar tu vida.</h2>
             </div>
@@ -312,9 +308,9 @@
                     </ul>
                 </div>
             </div>
-            <div style="display:flex; justify-content: space-between; padding: 0 40px;">
-                <p style="color: #64748B; font-size: 0.85rem;">&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
-                <p style="color: #64748B; font-size: 0.85rem;">Tienda Inteligente</p>
+            <div class="footer-bottom-store">
+                <p>&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
+                <p>Tienda Inteligente</p>
             </div>
         </div>
     </footer>

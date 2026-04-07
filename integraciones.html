@@ -86,7 +86,6 @@
             border-radius: 28px;
             padding: 0;
             text-align: left;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -95,9 +94,7 @@
         }
 
         .glass-card:hover {
-            transform: translateY(-12px) scale(1.05);
             z-index: 10;
-            filter: drop-shadow(0 20px 40px rgba(0, 229, 255, 0.2));
         }
 
         /* Imagenes */
@@ -115,12 +112,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
 
-        .glass-card:hover .image-container-3d img {
-            transform: scale(1.05) translateY(-5px);
-        }
+
 
         /* Custom Badges */
         .protocol-mesh {
@@ -219,12 +213,11 @@
         <!-- Hero Section -->
         <section class="hero-integraciones" style="padding: 120px 0 80px; text-align: center;">
             <div class="container">
-                <h1
-                    style="font-size: 4.5rem; font-weight: 800; color: #FFF; margin-bottom: 20px; letter-spacing: -1.5px;">
+                <h1 class="hero-title scroll-bounce delay-1">
                     Integraciones <span
                         style="color: #00E5FF; text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);">Totales</span>
                 </h1>
-                <p style="font-size: 1.25rem; color: #FFFFFF; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                <p class="hero-subtitle scroll-bounce delay-1" style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
                     Unificando tu hogar bajo un solo ecosistema inteligente y estable.
                 </p>
             </div>
@@ -233,7 +226,7 @@
         <section style="padding-bottom: 100px;">
             <div class="container">
                 <!-- Philosophy Brushed Metal Panel -->
-                <div class="filosofia-metal-panel">
+                <div class="filosofia-metal-panel scroll-bounce delay-2">
                     <span class="rivet-bl"></span>
                     <span class="rivet-br"></span>
                     <p style="font-size: 1.15rem; color: #E2E8F0; line-height: 1.8; margin: 0;">
@@ -247,14 +240,14 @@
                 <!-- Integration Grid -->
                 <div class="glass-feature-grid">
                     <!-- Asistentes de Voz -->
-                    <div class="glass-card">
+                    <div class="glass-card scroll-bounce delay-3">
                         <div class="image-container-3d">
                             <img src="assets/asistentevoz.png" alt="Asistentes de Voz">
                         </div>
                     </div>
 
                     <!-- Protocolos Industriales -->
-                    <div class="glass-card">
+                    <div class="glass-card scroll-bounce delay-4">
                         <div class="protocol-mesh"></div>
 
                         <div class="image-container-3d"
@@ -264,14 +257,14 @@
                     </div>
 
                     <!-- Una Sola App -->
-                    <div class="glass-card">
+                    <div class="glass-card scroll-bounce delay-5">
                         <div class="image-container-3d">
                             <img src="assets/unasolaapp.png" alt="Una Sola App">
                         </div>
                     </div>
 
                     <!-- Inteligencia Artificial -->
-                    <div class="glass-card">
+                    <div class="glass-card scroll-bounce delay-6">
                         <div class="image-container-3d">
                             <img src="assets/inteligencia.png" alt="Inteligencia Artificial">
                         </div>

@@ -43,7 +43,6 @@
             border-radius: 24px;
             padding: 35px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.01);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -64,7 +63,6 @@
         }
 
         .glass-panel:hover {
-            transform: translateY(-8px);
             background: rgba(15, 23, 42, 0.6);
         }
 
@@ -97,7 +95,7 @@
             }
 
             .hero-title-gradient {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
 
             .footer-pill {
@@ -120,6 +118,16 @@
 
             li {
                 justify-content: center !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title-gradient {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+            }
+            .text-gray-light {
+                font-size: 1rem !important;
             }
         }
 
@@ -169,7 +177,6 @@
             color: var(--text-gray-light);
             font-size: 0.85rem;
             text-decoration: none;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -186,13 +193,10 @@
             bottom: 30px;
             right: 30px;
             opacity: 0.6;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            transform: scale(0.95) translateX(10px);
         }
 
         .glass-panel:hover .widget-area {
             opacity: 1;
-            transform: scale(1) translateX(0);
         }
 
         /* Fake Live Widgets */
@@ -240,7 +244,6 @@
             position: absolute;
             background: #00E5FF;
             box-shadow: 0 0 10px #00E5FF;
-            animation: pulse-dot 2s infinite;
         }
 
         .dot-yellow {
@@ -259,19 +262,7 @@
             justify-content: center;
         }
 
-        @keyframes pulse-dot {
-            0% {
-                opacity: 0.5;
-            }
 
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0.5;
-            }
-        }
 
         /* Typography & layout */
         h3.card-title {
@@ -337,7 +328,6 @@
             position: relative;
             z-index: 1;
             text-decoration: none;
-            transition: 0.3s;
         }
 
         .cta-glowing::before {
@@ -352,7 +342,6 @@
             z-index: -1;
             filter: blur(8px);
             opacity: 0.8;
-            transition: filter 0.3s, opacity 0.3s;
         }
 
         .cta-glowing::after {
@@ -369,9 +358,7 @@
             opacity: 1;
         }
 
-        .cta-glowing:hover {
-            transform: translateY(-2px);
-        }
+
 
         /* Unified Pill Footer Container */
         .footer-pill {
@@ -438,11 +425,7 @@
         }
 
         /* WhatsApp Button Redesign */
-        @keyframes pulse-whatsapp-outline {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+
 
         .whatsapp-float {
             position: fixed;
@@ -460,14 +443,11 @@
             justify-content: center;
             font-size: 2.2rem;
             z-index: 100;
-            animation: pulse-whatsapp-outline 3s infinite;
-            transition: all 0.3s;
             box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
         }
         .whatsapp-float:hover {
             background: #25D366;
             color: #FFF;
-            transform: scale(1.1);
         }
         /* General Footer Utilities */
         .social-links {
@@ -564,8 +544,8 @@
                         style="width:8px; height:8px; border-radius:50%; background:#8B5CF6; box-shadow:0 0 8px #8B5CF6;">
                     </div>
                 </div>
-                <h1 class="hero-title-gradient">Sistemas Inteligentes</h1>
-                <h2 class="text-gray-light"
+                <h1 class="hero-title-gradient scroll-bounce delay-1">Sistemas Inteligentes</h1>
+                <h2 class="text-gray-light scroll-bounce delay-1"
                     style="margin-top:15px; font-weight: 400; font-size: 1.2rem; max-width: 600px; margin-inline: auto;">
                     Descubre cómo hacemos de cada rincón un espacio vivo.</h2>
             </div>
@@ -577,7 +557,7 @@
                 <div class="solutions-grid-2col">
 
                     <!-- Sistema 1 -->
-                    <div class="glass-panel panel-cyan">
+                    <div class="glass-panel panel-cyan scroll-bounce delay-2">
                         <div class="card-header">
                             <div class="icon-box icon-box-cyan">
                                 <i class="fa-solid fa-lightbulb"></i>
@@ -593,7 +573,7 @@
                     </div>
 
                     <!-- Sistema 2 -->
-                    <div class="glass-panel panel-orange">
+                    <div class="glass-panel panel-orange scroll-bounce delay-3">
                         <div class="card-header">
                             <div class="icon-box icon-box-orange">
                                 <i class="fa-solid fa-temperature-half"></i>
@@ -621,7 +601,7 @@
                     </div>
 
                     <!-- Sistema 3 -->
-                    <div class="glass-panel panel-cyan">
+                    <div class="glass-panel panel-cyan scroll-bounce delay-4">
                         <div class="card-header">
                             <div class="icon-box icon-box-cyan">
                                 <i class="fa-solid fa-shield-halved"></i>
@@ -652,7 +632,7 @@
                     </div>
 
                     <!-- Sistema 4 -->
-                    <div class="glass-panel panel-violet">
+                    <div class="glass-panel panel-violet scroll-bounce delay-5">
                         <div class="card-header">
                             <div class="icon-box icon-box-violet">
                                 <i class="fa-solid fa-sliders"></i>

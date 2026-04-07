@@ -126,27 +126,22 @@
                 <div class="carousel-slide" style="background-image: url('assets/carrusel04.png');"></div>
             </div>
 
-            <!-- Particles Canvas -->
-            <canvas id="particles" class="particle-canvas"></canvas>
-
             <div class="hero-overlay"></div>
+            <!-- Particles Canvas -->
+            <canvas id="particles" class="particle-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></canvas>
+            
             <div class="container hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title">Transforma tu Hogar <br>en <span class="text-neon-blue">Inteligente</span>
-                    </h1>
-                    <h2 class="hero-subtitle">Innovación, Seguridad y Confort <br> con SAIDEX 4.0 Domótica y
-                        Automatización</h2>
-                    <p class="hero-text">Diseñamos e integramos sistemas inteligentes para que vivas con más comodidad,
-                        seguridad y eficiencia energética.</p>
+                    <h1 class="hero-title animate-bounce-in delay-1">Transforma tu Hogar <br>en <span class="text-neon-blue">Inteligente</span></h1>
+                    <h2 class="hero-subtitle animate-bounce-in delay-2">Innovación, Seguridad y Confort <br> con SAIDEX 4.0 Domótica y Automatización</h2>
+                    <p class="hero-text animate-bounce-in delay-3">Diseñamos e integramos sistemas inteligentes para que vivas con más comodidad, seguridad y eficiencia energética.</p>
 
-                    <div class="hero-actions">
-                        <a href="#cotizar" class="btn btn-primary btn-large">Cotizar Proyecto <i
-                                class="fa-solid fa-arrow-right"></i></a>
-                        <a href="#soluciones" class="btn btn-cyan btn-large">Ver Soluciones <i
-                                class="fa-regular fa-circle-play"></i></a>
+                    <div class="hero-actions animate-bounce-in delay-4">
+                        <a href="#cotizar" class="btn btn-primary btn-large">Cotizar Proyecto <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#soluciones" class="btn btn-cyan btn-large">Ver Soluciones <i class="fa-regular fa-circle-play"></i></a>
                     </div>
 
-                    <div class="hero-trust">
+                    <div class="hero-trust animate-bounce-in delay-4">
                         <span><i class="fa-regular fa-circle-check"></i> Instalación Profesional</span>
                         <span><i class="fa-regular fa-circle-check"></i> Garantía de Calidad</span>
                         <span><i class="fa-solid fa-headset"></i> Soporte 24/7</span>
@@ -160,7 +155,8 @@
             </div>
 
             <!-- Scroll Indicator -->
-            <div class="scroll-indicator" onclick="document.getElementById('nosotros').scrollIntoView({behavior: 'smooth'})">
+            <div class="scroll-indicator animate-bounce-in delay-4"
+                onclick="document.getElementById('nosotros').scrollIntoView({behavior: 'smooth'})">
                 <span>DESCUBRE MÁS</span>
                 <div class="mouse-icon">
                     <div class="mouse-wheel"></div>
@@ -188,7 +184,7 @@
                                 ecosistemas inteligentes, donde la comodidad, eficiencia y seguridad se integran de
                                 manera perfecta y accesible.</p>
 
-                            <h3 class="about-glass-subtitle mt-4">Nuestra Propuesta de Valor</h3>
+                            <h3 class="about-glass-subtitle" style="margin-top: 30px;">Nuestra Propuesta de Valor</h3>
                             <p class="about-glass-text">No solo vendemos dispositivos; creamos experiencias. Diseñamos
                                 soluciones personalizadas que se adaptan a tu estilo de vida, garantizando que cada
                                 rincón de tu hogar trabaje para ti, maximizando el ahorro energético y tu tranquilidad
@@ -451,13 +447,19 @@
             <div class="footer-pill">
                 <!-- Column 1: Brand -->
                 <div class="brand-col">
-                    <img src="assets/logo.png" alt="SAIDEX 4.0" style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
+                    <img src="assets/logo.png" alt="SAIDEX 4.0"
+                        style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
                     <p>Innovación y tecnología para transformar tu hogar en un espacio inteligente.</p>
                     <div class="social-links" style="margin-top: 15px; display: flex; gap: 20px;">
-                        <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank"
+                            style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank"
+                            style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu"
+                            target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank"
+                            style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -475,8 +477,10 @@
                 <div class="contact-col">
                     <h4>CONTACTO</h4>
                     <ul>
-                        <li><i class="fa-solid fa-phone" style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667</li>
-                        <li><i class="fa-solid fa-envelope" style="color: #00E5FF; margin-right:8px;"></i> info@saidex40.com</li>
+                        <li><i class="fa-solid fa-phone" style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667
+                        </li>
+                        <li><i class="fa-solid fa-envelope" style="color: #00E5FF; margin-right:8px;"></i>
+                            info@saidex40.com</li>
                     </ul>
                 </div>
             </div>

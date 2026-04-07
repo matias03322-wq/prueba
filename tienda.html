@@ -41,6 +41,58 @@
             border-radius: 10px; padding: 12px 15px; color: #FFF; font-family: 'Inter', sans-serif;
         }
         .form-group input:focus { border-color: var(--brand-cyan); outline: none; }
+
+        /* Floating Cart Button Style - Only for Store */
+        .cart-float {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00E5FF, #00B4D8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4), 0 0 15px rgba(0, 229, 255, 0.2);
+            z-index: 1001;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            outline: none;
+        }
+
+        .cart-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.6), 0 0 25px rgba(0, 229, 255, 0.3);
+        }
+
+        .cart-float .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #FF3D00;
+            color: #FFF;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 10px;
+            min-width: 20px;
+            text-align: center;
+            border: 2px solid #020617;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .cart-float {
+                bottom: 90px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
     </style>
 </head>
 
@@ -314,6 +366,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Shopping Cart Button (Store Only) -->
+    <button class="cart-float cart-toggle" id="cart-btn-float" aria-label="Ver carrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count-float" class="cart-badge">0</span>
+    </button>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/51906681667" class="whatsapp-float" target="_blank" rel="noopener noreferrer">

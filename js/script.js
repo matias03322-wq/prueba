@@ -101,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if(cartToggleBtn) cartToggleBtn.addEventListener('click', toggleCart);
+    const cartFloatBtn = document.getElementById('cart-btn-float');
+    if(cartFloatBtn) cartFloatBtn.addEventListener('click', toggleCart);
     if(closeCartBtn) closeCartBtn.addEventListener('click', toggleCart);
     if(cartOverlay) cartOverlay.addEventListener('click', toggleCart);
 
@@ -161,9 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        if(cartCount) {
-             cartCount.innerText = totalItems;
-        }
+        // Update all cart count indicators (navbar and floating)
+        document.querySelectorAll('#cart-count, #cart-count-float').forEach(el => {
+            el.innerText = totalItems;
+        });
         if(cartTotalPrice) cartTotalPrice.innerText = '$' + totalPrice.toFixed(2);
 
         document.querySelectorAll('.remove-item').forEach(btn => {

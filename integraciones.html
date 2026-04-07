@@ -16,7 +16,7 @@
     <style>
         .bg-nodes {
             background-color: #020617;
-            background-image: url('assets/integraciones.png');
+            background-image: url('assets/integraciones.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -78,23 +78,86 @@
             margin: 0 auto;
         }
 
-        .glass-card {
-            background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: none;
-            border-radius: 28px;
-            padding: 0;
-            text-align: left;
+        /* Integraciones Modern Cards */
+        .card-modern-header {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #00E5FF;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 5;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-modern-header i {
+            font-size: 1.1rem;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             position: relative;
             overflow: hidden;
-            height: 420px;
+            height: 480px;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .glass-card:hover {
-            z-index: 10;
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.1);
+            transform: perspective(1000px) rotateX(2deg);
+        }
+
+        .ai-overlay-labels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .ai-label {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #E2E8F0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .label-1 { top: 20%; left: 10%; }
+        .label-2 { top: 20%; right: 10%; }
+        .label-3 { bottom: 20%; left: 10%; }
+
+        .robot-avatar {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            z-index: 4;
+            filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.4));
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Imagenes */
@@ -217,7 +280,8 @@
                     Integraciones <span
                         style="color: #00E5FF; text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);">Totales</span>
                 </h1>
-                <p class="hero-subtitle scroll-bounce delay-1" style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                <p class="hero-subtitle scroll-bounce delay-1"
+                    style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
                     Unificando tu hogar bajo un solo ecosistema inteligente y estable.
                 </p>
             </div>
@@ -241,6 +305,10 @@
                 <div class="glass-feature-grid">
                     <!-- Asistentes de Voz -->
                     <div class="glass-card scroll-bounce delay-3">
+                        <div class="card-modern-header">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                            Asistentes de Voz
+                        </div>
                         <div class="image-container-3d">
                             <img src="assets/asistentevoz.png" alt="Asistentes de Voz">
                         </div>
@@ -248,16 +316,22 @@
 
                     <!-- Protocolos Industriales -->
                     <div class="glass-card scroll-bounce delay-4">
+                        <div class="card-modern-header">
+                            <i class="fa-solid fa-network-wired"></i>
+                            Protocolos Industriales
+                        </div>
                         <div class="protocol-mesh"></div>
-
-                        <div class="image-container-3d"
-                            style="display:flex; justify-content:center; align-items:center;">
+                        <div class="image-container-3d">
                             <img src="assets/protocolosindustriales.png" alt="Protocolo Industrial">
                         </div>
                     </div>
 
                     <!-- Una Sola App -->
                     <div class="glass-card scroll-bounce delay-5">
+                        <div class="card-modern-header">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            Una Sola App
+                        </div>
                         <div class="image-container-3d">
                             <img src="assets/unasolaapp.png" alt="Una Sola App">
                         </div>
@@ -265,9 +339,19 @@
 
                     <!-- Inteligencia Artificial -->
                     <div class="glass-card scroll-bounce delay-6">
+                        <div class="card-modern-header">
+                            <i class="fa-solid fa-brain"></i>
+                            INTELIGENCIA (IA)
+                        </div>
+                        <div class="ai-overlay-labels">
+                            <div class="ai-label label-1">Análisis de Datos Ambientales</div>
+                            <div class="ai-label label-2">Métricas de Rendimiento</div>
+                            <div class="ai-label label-3">Avatar de IA y Red de Agentes</div>
+                        </div>
                         <div class="image-container-3d">
                             <img src="assets/inteligencia.png" alt="Inteligencia Artificial">
                         </div>
+                        <i class="fa-solid fa-robot robot-avatar" style="color: #00E5FF; font-size: 2rem;"></i>
                     </div>
                 </div>
             </div>
@@ -280,13 +364,19 @@
             <div class="footer-pill">
                 <!-- Column 1: Brand -->
                 <div class="brand-col">
-                    <img src="assets/logo.png" alt="SAIDEX 4.0" style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
+                    <img src="assets/logo.png" alt="SAIDEX 4.0"
+                        style="height: 60px; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3)); margin-bottom: 15px;">
                     <p>Innovación y tecnología para transformar tu hogar en un espacio inteligente.</p>
                     <div class="social-links" style="margin-top: 15px; display: flex; gap: 20px;">
-                        <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/share/1DKk2KMXqo/" target="_blank"
+                            style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/capri4431?igsh=cWtvcjdqN3Vhbjgz" target="_blank"
+                            style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@jesusronaldocesararellanas5388/community?si=2w9Oj341CV9DP4Bu"
+                            target="_blank" style="color: #00E5FF; font-size: 1.4rem;"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@arellanasanchez2006" target="_blank"
+                            style="color: #00E5FF; font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -304,8 +394,10 @@
                 <div class="contact-col">
                     <h4>CONTACTO</h4>
                     <ul>
-                        <li><i class="fa-solid fa-phone" style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667</li>
-                        <li><i class="fa-solid fa-envelope" style="color: #00E5FF; margin-right:8px;"></i> info@saidex40.com</li>
+                        <li><i class="fa-solid fa-phone" style="color: #00E5FF; margin-right:8px;"></i> +51 906 681 667
+                        </li>
+                        <li><i class="fa-solid fa-envelope" style="color: #00E5FF; margin-right:8px;"></i>
+                            info@saidex40.com</li>
                     </ul>
                 </div>
             </div>
@@ -315,11 +407,11 @@
             </div>
         </div>
     </footer>
-            <div style="display:flex; justify-content: space-between; padding: 0 40px;">
-                <p style="color: #64748B; font-size: 0.85rem;">&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
-                <p style="color: #64748B; font-size: 0.85rem;">Integraciones Totales</p>
-            </div>
-        </div>
+    <div style="display:flex; justify-content: space-between; padding: 0 40px;">
+        <p style="color: #64748B; font-size: 0.85rem;">&copy; 2026 SAIDEX 4.0 Domótica y Automatización.</p>
+        <p style="color: #64748B; font-size: 0.85rem;">Integraciones Totales</p>
+    </div>
+    </div>
     </footer>
 
     <!-- Floating WhatsApp Button Redesigned -->

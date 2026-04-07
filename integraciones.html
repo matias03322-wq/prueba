@@ -59,6 +59,68 @@
             right: 12px;
         }
 
+        .about-card-title {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .card-hover-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 229, 255, 0.3);
+            transform: translateY(100%);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            z-index: 10;
+        }
+
+        .glass-card:hover .card-hover-details {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .card-hover-details h4 {
+            color: #00E5FF;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .card-hover-details p {
+            color: #E2E8F0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .card-hover-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .card-hover-details li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: #94A3B8;
+            margin-bottom: 8px;
+        }
+
+        .card-hover-details li i {
+            color: #00E5FF;
+            font-size: 0.8rem;
+        }
+
         .rivet-bl {
             bottom: 12px;
             left: 12px;
@@ -312,6 +374,15 @@
                         <div class="image-container-3d">
                             <img src="assets/asistentevoz.png" alt="Asistentes de Voz">
                         </div>
+                        <div class="card-hover-details">
+                            <h4>Control por Voz</h4>
+                            <p>Interactúa con tu hogar de forma natural y fluida.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Amazon Alexa</li>
+                                <li><i class="fa-solid fa-check"></i> Google Assistant</li>
+                                <li><i class="fa-solid fa-check"></i> Apple HomeKit (Siri)</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <!-- Protocolos Industriales -->
@@ -324,6 +395,15 @@
                         <div class="image-container-3d">
                             <img src="assets/protocolosindustriales.png" alt="Protocolo Industrial">
                         </div>
+                        <div class="card-hover-details">
+                            <h4>Conectividad Robusta</h4>
+                            <p>Comunicación estable de largo alcance y bajo consumo.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Estándar KNX (Industrial)</li>
+                                <li><i class="fa-solid fa-check"></i> Redes Mesh Zigbee / Z-Wave</li>
+                                <li><i class="fa-solid fa-check"></i> Seguridad de grado militar</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <!-- Una Sola App -->
@@ -334,6 +414,15 @@
                         </div>
                         <div class="image-container-3d">
                             <img src="assets/unasolaapp.png" alt="Una Sola App">
+                        </div>
+                        <div class="card-hover-details">
+                            <h4>Interfaz Unificada</h4>
+                            <p>Todo el control de tu hogar en la palma de tu mano.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Control de Iluminación y Clima</li>
+                                <li><i class="fa-solid fa-check"></i> Gestión de Seguridad en Tiempo Real</li>
+                                <li><i class="fa-solid fa-check"></i> Creación de Escenas Personalizadas</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -352,6 +441,15 @@
                             <img src="assets/inteligencia.png" alt="Inteligencia Artificial">
                         </div>
                         <i class="fa-solid fa-robot robot-avatar" style="color: #00E5FF; font-size: 2rem;"></i>
+                        <div class="card-hover-details">
+                            <h4>Cerebro Digital</h4>
+                            <p>Algoritmos avanzados que aprenden de tus rutinas.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Optimización de Consumo Energético</li>
+                                <li><i class="fa-solid fa-check"></i> Predicción Inteligente de Escenas</li>
+                                <li><i class="fa-solid fa-check"></i> Seguridad Proactiva y Preventiva</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

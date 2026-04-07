@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png">
-</head>
-<style>
+    <style>
     :root {
         --brand-orange: #F97316;
         --brand-cyan: #00E5FF;
@@ -358,6 +357,92 @@
             width: 180px;
         }
     }
+    /* Process Dashboard Styles */
+    .process-dashboard {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 40px;
+        padding: 60px 40px;
+        margin-bottom: 0;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 10;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .process-item {
+        padding: 25px 20px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .process-item:hover {
+        background: rgba(0, 229, 255, 0.05);
+        border-color: var(--brand-cyan);
+        transform: translateY(-5px);
+    }
+
+    .process-item i {
+        font-size: 2.2rem;
+        color: var(--brand-cyan);
+        margin-bottom: 15px;
+        display: block;
+        filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3));
+    }
+
+    .process-item h4 {
+        color: #FFF;
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .process-item p {
+        color: #94A3B8;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .connector-svg {
+        position: relative;
+        height: 80px;
+        margin-top: -20px;
+        z-index: 1;
+        width: 100%;
+        overflow: visible;
+        pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+        .process-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .connector-svg {
+            display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+        .process-dashboard {
+            padding: 40px 20px;
+        }
+    }
 </style>
 </head>
 
@@ -411,47 +496,60 @@
             </div>
         </section>
 
-        <section style="padding: 40px 0 120px;">
-            <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <div class="reveal-on-scroll scroll-bounce delay-2">
-                    <h2 style="font-size: 3rem; color: #FFF; font-weight: 800; margin-bottom: 25px;">Ingeniería a Medida
+        <section style="padding: 40px 0 120px; position: relative;">
+            <div class="container" style="max-width: 1100px; margin: 0 auto; text-align: center;">
+                <div class="process-dashboard reveal-on-scroll scroll-bounce delay-2">
+                    <h2 style="font-size: 3rem; color: #FFF; font-weight: 800; margin-bottom: 20px;">Ingeniería a Medida
                     </h2>
-                    <p style="font-size: 1.15rem; color: #CBD5E1; line-height: 1.8; margin-bottom: 35px;">
-                        Cada proyecto es único. Nuestro equipo de ingenieros no se limita a "conectar equipos";
-                        analizamos planos, flujos eléctricos y arquitectónicos para crear una automatización invisible
-                        pero poderosa.
+                    <p style="font-size: 1.15rem; color: #CBD5E1; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                        Cada proyecto es único. Creamos automatización invisible pero poderosa, analizando planos y flujos para diseñar soluciones a tu medida.
                     </p>
-                    <ul
-                        style="list-style: none; padding: 0; margin-bottom: 40px; display: flex; flex-direction: column; gap: 20px; align-items: center;">
-                        <li class="service-item"
-                            style="display: flex; align-items: center; gap: 15px; color: #FFF; font-weight: 500;">
-                            <i class="fa-solid fa-microchip" style="color:var(--brand-cyan); font-size: 1.2rem;"></i>
-                            <span><strong>Diseño de Proyecto:</strong> Planimetría y cálculo de cargas.</span>
-                        </li>
-                        <li class="service-item"
-                            style="display: flex; align-items: center; gap: 15px; color: #FFF; font-weight: 500;">
-                            <i class="fa-solid fa-network-wired"
-                                style="color:var(--brand-cyan); font-size: 1.2rem;"></i> <span><strong>Instalación
-                                    Certificada:</strong> Cableado estructurado y canalizaciones.</span>
-                        </li>
-                        <li class="service-item"
-                            style="display: flex; align-items: center; gap: 15px; color: #FFF; font-weight: 500;">
-                            <i class="fa-solid fa-display" style="color:var(--brand-cyan); font-size: 1.2rem;"></i>
-                            <span><strong>Programación Custom:</strong> Interfaces de usuario únicas.</span>
-                        </li>
-                        <li class="service-item"
-                            style="display: flex; align-items: center; gap: 15px; color: #FFF; font-weight: 500;">
-                            <i class="fa-solid fa-headset" style="color:var(--brand-cyan); font-size: 1.2rem;"></i>
-                            <span><strong>Soporte Post-Venta:</strong> Mantenimiento preventivo 24/7.</span>
-                        </li>
-                    </ul>
-                    <a href="javascript:void(0)" class="btn-orange btn-pulse" id="btn-agenda-visita">Agenda una Visita
-                        Técnica <i class="fa-solid fa-calendar-check"></i></a>
-                </div>
-            </div>
 
-            <div class="container reveal-on-scroll">
-                <div class="benefits-grid">
+                    <div class="process-grid">
+                        <!-- Item 1 -->
+                        <div class="process-item">
+                            <i class="fa-solid fa-microchip"></i>
+                            <h4>Diseño de Proyecto</h4>
+                            <p>Planimetría y cálculo de cargas</p>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="process-item">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <h4>Instalación Certificada</h4>
+                            <p>Cableado estructurado y canalizaciones</p>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="process-item">
+                            <i class="fa-solid fa-display"></i>
+                            <h4>Programación Custom</h4>
+                            <p>Interfaces de usuario únicas</p>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="process-item">
+                            <i class="fa-solid fa-headset"></i>
+                            <h4>Soporte Post-Venta</h4>
+                            <p>Mantenimiento preventivo 24/7</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 50px;">
+                        <a href="javascript:void(0)" class="btn-orange btn-pulse" id="btn-agenda-visita">Agenda una Visita Técnica <i class="fa-solid fa-calendar-check"></i></a>
+                    </div>
+                </div>
+
+                <!-- Connectors SVG -->
+                <div class="connector-svg reveal-on-scroll">
+                    <svg width="1100" height="80" viewBox="0 0 1100 80" preserveAspectRatio="none">
+                        <path d="M550,0 L550,30 L137,30 L137,80 M550,30 L412,30 L412,80 M550,30 L687,30 L687,80 M550,30 L962,30 L962,80" 
+                              fill="none" stroke="rgba(0, 229, 255, 0.4)" stroke-width="2" stroke-dasharray="5,5" />
+                        <!-- Circles at bottom of lines -->
+                        <circle cx="137" cy="75" r="3" fill="var(--brand-cyan)" />
+                        <circle cx="412" cy="75" r="3" fill="var(--brand-cyan)" />
+                        <circle cx="687" cy="75" r="3" fill="var(--brand-cyan)" />
+                        <circle cx="962" cy="75" r="3" fill="var(--brand-cyan)" />
+                    </svg>
+                </div>
+
+                <div class="benefits-grid" style="margin-top: 0;">
                     <div class="benefit-card scroll-bounce delay-4">
                         <i class="fa-solid fa-bolt"></i>
                         <h4>Ahorro Energético</h4>

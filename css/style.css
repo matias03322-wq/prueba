@@ -2011,6 +2011,33 @@ img {
   justify-content: center;
 }
 
+/* MINIMAL FOOTER VARIANT (No Box) */
+.footer-pill.minimal {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 40px 0;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.footer-pill.minimal .brand-col,
+.footer-pill.minimal .nav-col,
+.footer-pill.minimal .contact-col {
+  align-items: center;
+  text-align: center;
+}
+
+.footer-pill.minimal .nav-col ul,
+.footer-pill.minimal .contact-col ul {
+  align-items: center;
+  text-align: center;
+}
+
+.footer-pill.minimal .social-links {
+  justify-content: center;
+}
+
 .footer-pill .brand-col {
   display: flex;
   flex-direction: column;

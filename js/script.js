@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('scroll', () => {
         if (!header) return;
+        // Disable scroll class toggling if mobile menu is open to prevent jumping
+        if (document.body.classList.contains('no-scroll')) return;
+        
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
@@ -24,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!navLinks || !navActions) return;
             navLinks.classList.toggle('mobile-active');
             navActions.classList.toggle('mobile-active');
+            document.body.classList.toggle('no-scroll');
             
             const icon = menuBtn.querySelector('i');
             if (navLinks.classList.contains('mobile-active')) {
@@ -36,15 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- PHASE 3: BUTTON HOVER EFFCTS REMOVED ---
-
     // Close mobile menu on link click
     const mobileLinks = document.querySelectorAll('.nav-item, .nav-actions .btn, .dropdown-menu a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
+            // Updated to match CSS max-width 1150px
+            if (window.innerWidth <= 1150) {
                 if (navLinks) navLinks.classList.remove('mobile-active');
                 if (navActions) navActions.classList.remove('mobile-active');
+                document.body.classList.remove('no-scroll');
                 if (menuBtn) {
                     const icon = menuBtn.querySelector('i');
                     icon.classList.remove('fa-xmark');
@@ -439,4 +443,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterAnimations();
     initScrollReveal();
 });
-

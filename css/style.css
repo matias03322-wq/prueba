@@ -69,7 +69,10 @@ body {
 }
 
 
-
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
 
 /* 
   ANIMATION FRAMEWORK - RESTORED & CUSTOM
@@ -191,7 +194,7 @@ img {
   min-height: 80px;
   backdrop-filter: none;
   border-bottom: 1px solid transparent;
-  z-index: 1000;
+  z-index: 2000; /* Much higher than overlay */
   padding: 15px 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1580,6 +1583,8 @@ img {
 @media (max-width: 1150px) {
   .menu-toggle {
     display: block;
+    position: relative;
+    z-index: 2001;
   }
 
   .nav-links {

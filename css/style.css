@@ -534,30 +534,100 @@ img {
   font-size: 1.1rem;
 }
 
-.hero-trust {
+/* Smartphone Mockup Removed */
+
+/* Hero Trust Bar Premium */
+.hero-trust-bar {
   display: flex;
-  gap: 24px;
-  font-size: 0.9rem;
-  color: var(--text-gray-light);
+  align-items: center;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 20px;
+  gap: 15px;
+  margin-top: 25px;
+  width: fit-content;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
 }
 
-.hero-trust span {
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+}
+
+.trust-item b {
+  font-weight: 700;
+}
+
+.trust-item i {
+  color: #4ADE80; /* Bright Green like the reference */
+  font-size: 1.1rem;
+}
+
+.trust-dot {
+  width: 4px;
+  height: 4px;
+  background: #4ADE80;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.trust-whatsapp-btn {
   display: flex;
   align-items: center;
   gap: 8px;
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  border-radius: 30px;
+  padding: 8px 18px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 10px;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.15);
 }
 
-.hero-trust i {
-  color: var(--brand-blue-accent);
+.trust-whatsapp-btn i {
+  color: #25D366;
+  font-size: 1.2rem;
 }
 
-.hero-image {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
+.trust-whatsapp-btn:hover {
+  background: #25D366;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
 }
 
-/* Smartphone Mockup Removed */
+.trust-whatsapp-btn:hover i {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .hero-trust-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    width: 100%;
+  }
+  .trust-dot {
+    display: none;
+  }
+  .trust-whatsapp-btn {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 /* 
   About Section
